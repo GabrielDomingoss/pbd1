@@ -3,6 +3,7 @@ import sys
 import io
 import re
 import nltk
+nltk.download('stopwords',quiet=True)
 from nltk.corpus import stopwords
 punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 stop_words = set(stopwords.words('english'))
