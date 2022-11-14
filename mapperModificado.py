@@ -28,7 +28,12 @@ class Mapper:
       for word in words: 
         if word not in stop_words:
           # VERSÃO ORIGINAL
-          if word in self.array.keys():
+        #   if word in self.array.keys():
+        #       self.array[word] = self.array[word] + 1
+        #   else:
+        #       self.array[word] = 1
+        # VERSÃO MODIFICADA
+          if word in self.array.keys() and word.isalpha():
               self.array[word] = self.array[word] + 1
           else:
               self.array[word] = 1
