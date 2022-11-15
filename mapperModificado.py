@@ -26,14 +26,15 @@ class Mapper:
 
       words=line.split()
       for word in words: 
-        if word not in stop_words:
-          # VERSÃO ORIGINAL
+        # VERSÃO ORIGINAL
+        # if word not in stop_words:
         #   if word in self.array.keys():
         #       self.array[word] = self.array[word] + 1
         #   else:
         #       self.array[word] = 1
         # VERSÃO MODIFICADA
-          if word in self.array.keys() and word.isalpha():
+        if word not in stop_words and word.isalpha():
+          if word in self.array.keys():
               self.array[word] = self.array[word] + 1
           else:
               self.array[word] = 1
