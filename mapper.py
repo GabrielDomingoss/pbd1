@@ -27,7 +27,6 @@ class Mapper:
       words=line.split()
       for word in words: 
         if word not in stop_words:
-          # VERSÃO ORIGINAL
           if word in self.array.keys():
               self.array[word] = self.array[word] + 1
           else:
@@ -38,6 +37,8 @@ class Mapper:
     for term in self.array.keys():
           print("%s\t%s" % (term, self.array[term]))
 
-mapp = Mapper()
-mapp.Map()
-mapp.Close
+
+if __name__ == "__main__":
+    mapeador = Mapper()
+    mapeador.Map()
+    mapeador.Close()

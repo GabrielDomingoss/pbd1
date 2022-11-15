@@ -44,6 +44,8 @@ class Mapper:
     for term in self.array.keys():
           print("%s\t%s" % (term, self.array[term]))
 
-mapp = Mapper()
-mapp.Map()
-mapp.Close
+
+if __name__ == "__main__":
+    mapeador = Mapper()
+    mapeador.Map()
+    mapeador.Close()
