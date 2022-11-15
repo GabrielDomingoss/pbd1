@@ -12,7 +12,7 @@ input_stream = io.TextIOWrapper(sys.stdin.buffer, encoding='latin1')
 class Mapper:
 
   def __init__(self):
-    self.array= {}
+    self.array= dict()
 
   def Map(self):
     for line in input_stream:
@@ -31,7 +31,6 @@ class Mapper:
               self.array[word] = self.array[word] + 1
           else:
               self.array[word] = 1
-          print('%s\t%s' % (word, 1))
 
   def Close(self):
     for term in self.array.keys():

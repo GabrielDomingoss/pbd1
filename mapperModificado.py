@@ -8,6 +8,8 @@ from nltk.corpus import stopwords
 punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 stop_words = set(stopwords.words('english'))
 input_stream = io.TextIOWrapper(sys.stdin.buffer, encoding='latin1')
+import re
+
 
 class Mapper:
 
@@ -19,6 +21,7 @@ class Mapper:
       line = line.strip()
       line = re.sub(r'[^\w\s]', '',line)
       line = line.lower()
+      line = re.sub(r'\w*\d\w*', '', line)
 
       for x in line:
         if x in punctuations:
@@ -26,19 +29,11 @@ class Mapper:
 
       words=line.split()
       for word in words: 
-        # VERSÃO ORIGINAL
-        # if word not in stop_words:
-        #   if word in self.array.keys():
-        #       self.array[word] = self.array[word] + 1
-        #   else:
-        #       self.array[word] = 1
-        # VERSÃO MODIFICADA
-        if word not in stop_words and word.isalpha():
+        if word not in stop_words:
           if word in self.array.keys():
               self.array[word] = self.array[word] + 1
           else:
               self.array[word] = 1
-          print('%s\t%s' % (word, 1))
 
   def Close(self):
     for term in self.array.keys():
